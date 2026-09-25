@@ -34,3 +34,6 @@ dist-ssr
 # Local env (contains project-specific Supabase keys)
 .env
 .env.local
+
+# From the earlier demo commit
+.DS_Store
