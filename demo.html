@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Marketing Agency</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --navy: #001a4d;
+      --navy-light: #002e8f;
+      --navy-dark: #000d2e;
+      --accent: #00d4ff;
+      --accent-purple: #a855f7;
+    }
+
+    body {
+      background-color: var(--navy-dark);
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .gradient-accent {
+      background: linear-gradient(135deg, #00d4ff 0%, #a855f7 100%);
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .text-accent {
+      color: var(--accent);
+    }
+
+    h1, h2 { font-weight: bold; line-height: 1.2; }
+
+    .certificate {
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+      border: 8px solid #8B4513;
+      border-radius: 20px;
+      padding: 60px 80px;
+      text-align: center;
+      color: #333;
+      font-family: 'Georgia', serif;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      max-width: 800px;
+      margin: 40px auto;
+    }
+
+    .certificate h1 {
+      font-size: 48px;
+      color: #8B4513;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .certificate .line {
+      border-bottom: 3px solid #8B4513;
+      margin: 20px 0;
+    }
+
+    .certificate-text {
+      font-size: 20px;
+      margin: 30px 0;
+      font-style: italic;
+    }
+
+    .certificate-name {
+      font-size: 36px;
+      font-weight: bold;
+      color: #8B4513;
+      margin: 20px 0;
+      border-bottom: 2px solid #8B4513;
+      padding-bottom: 10px;
+    }
+
+    .review-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .stars {
+      color: #ffd700;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body class="bg-navy-900">
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    function Navbar({ onNavigate }) {
+      const [isOpen, setIsOpen] = useState(false);
+
+      return (
+        <nav className="sticky top-0 z-50 glass border-b border-accent/10">
+          <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 className="text-2xl font-bold text-accent cursor-pointer" onClick={() => onNavigate('home')}>Digital Growth</h1>
+            <div className="hidden md:flex space-x-8">
+              <button onClick={() => onNavigate('home')} className="hover:text-accent transition">Home</button>
+              <button onClick={() => onNavigate('about')} className="hover:text-accent transition">About</button>
+              <button onClick={() => onNavigate('services')} className="hover:text-accent transition">Services</button>
+              <button onClick={() => onNavigate('pricing')} className="hover:text-accent transition">Courses</button>
+              <button onClick={() => onNavigate('certificate')} className="hover:text-accent transition">Certificates</button>
+            </div>
+            <div className="hidden md:flex space-x-4">
+              <button onClick={() => onNavigate('contact')} className="px-6 py-2 rounded-lg border border-accent text-accent hover:bg-accent/10 transition">
+                Contact
+              </button>
+              <button onClick={() => onNavigate('contact')} className="px-6 py-2 rounded-lg gradient-accent text-navy-900 font-semibold hover:opacity-90 transition">
+                Enroll Now
+              </button>
+            </div>
+          </div>
+        </nav>
+      );
+    }
+
+    function Hero() {
+      return (
+        <div className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden">
+          <div className="absolute top-20 left-20 w-72 h-72 bg-accent/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+          <div className="absolute bottom-20 right-20 w-72 h-72 bg-accent-purple/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
+            <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
+              <span>Master </span>
+              <span className="text-accent">Digital Marketing</span>
+              <span> Today</span>
+            </h1>
+
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Learn SEO, Social Media, Ads, Email Marketing, and more with our comprehensive digital marketing courses.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+              <button className="px-8 py-3 rounded-lg gradient-accent text-navy-900 font-semibold hover:opacity-90 transition">
+                Enroll Now
+              </button>
+              <button className="px-8 py-3 rounded-lg border border-accent text-accent hover:bg-accent/10 transition">
+                Explore Courses
+              </button>
+            </div>
+
+            <div className="glass rounded-xl p-1 border border-accent/30 overflow-hidden max-w-3xl mx-auto">
+              <div className="bg-navy-800 rounded-lg p-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="text-center">
+                    <p className="text-gray-400 text-sm mb-2">Students Trained</p>
+                    <p className="text-3xl font-bold text-accent">5000+</p>
+                    <p className="text-xs text-green-400 mt-1">↑ 200+ this month</p>
+                  </div>
+                  <div className="text-center border-l border-r border-accent/20">
+                    <p className="text-gray-400 text-sm mb-2">Success Rate</p>
+                    <p className="text-3xl font-bold text-accent">98%</p>
+                    <p className="text-xs text-green-400 mt-1">Course completion</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-gray-400 text-sm mb-2">Avg. Salary Increase</p>
+                    <p className="text-3xl font-bold text-accent">45%</p>
+                    <p className="text-xs text-green-400 mt-1">Post-course</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function AboutPage() {
+      return (
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              What is <span className="text-accent">Digital Marketing?</span>
+            </h2>
+            <p className="text-gray-300 text-lg mb-8 max-w-3xl">
+              Digital marketing is the promotion of products, services and brands using digital channels such as search engines, social media, websites, email and online advertising.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-2xl font-bold text-accent mb-6">Benefits of Digital Marketing</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start space-x-3">
+                    <span className="text-accent text-xl">✓</span>
+                    <span className="text-gray-300">Reach the right audience at the right time</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <span className="text-accent text-xl">✓</span>
+                    <span className="text-gray-300">Increase brand awareness and visibility</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <span className="text-accent text-xl">✓</span>
+                    <span className="text-gray-300">Generate quality leads and sales</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <span className="text-accent text-xl">✓</span>
+                    <span className="text-gray-300">Increase online sales and revenue</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="glass rounded-lg p-8 border border-accent/20">
+                <h3 className="text-2xl font-bold text-accent mb-6">Why Is It Important?</h3>
+                <p className="text-gray-300 mb-4">
+                  Today, customers spend a large amount of time online. Digital marketing allows businesses to reach potential customers where they are already spending their time.
+                </p>
+                <p className="text-gray-300">
+                  From social media marketing to search engine optimization, every strategy can help your business achieve measurable growth and competitive advantage in the digital landscape.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function ServiceCard({ icon, title, description }) {
+      return (
+        <div className="group glass rounded-lg p-8 border border-accent/20 hover:border-accent/50 transition h-full">
+          <div className="text-4xl mb-4">{icon}</div>
+          <h3 className="text-xl font-bold mb-2 text-white group-hover:text-accent transition">{title}</h3>
+          <p className="text-gray-400 text-sm mb-4">{description}</p>
+          <span className="text-accent text-sm font-semibold group-hover:translate-x-1 transition inline-block">Learn more →</span>
+        </div>
+      );
+    }
+
+    function ServicesPage() {
+      const services = [
+        {
+          icon: '🔍',
+          title: 'SEO',
+          description: 'Improve search visibility, organic traffic, rankings, and website conversions with technical and on-page SEO strategies.'
+        },
+        {
+          icon: '📝',
+          title: 'Content Marketing',
+          description: 'Create valuable blogs, guides, videos, case studies, and other content that attracts and engages your audience.'
+        },
+        {
+          icon: '📱',
+          title: 'Social Media Marketing',
+          description: 'Build your brand and connect with customers through Instagram, Facebook, LinkedIn, X, and YouTube.'
+        },
+        {
+          icon: '📧',
+          title: 'Email Marketing',
+          description: 'Use newsletters, welcome emails, promotional campaigns, and automated flows to nurture leads and increase retention.'
+        },
+        {
+          icon: '💰',
+          title: 'Paid Advertising',
+          description: 'Create targeted campaigns across Google, Meta, Instagram, TikTok, and display networks to generate measurable results.'
+        },
+        {
+          icon: '📊',
+          title: 'Analytics & Tracking',
+          description: 'Track traffic, leads, conversions, revenue, campaign performance, and customer journeys using analytics dashboards.'
+        },
+        {
+          icon: '🎯',
+          title: 'Conversion Rate Optimization',
+          description: 'Test headlines, CTAs, landing pages, forms, checkout experiences, and UX to improve conversion rates.'
+        },
+        {
+          icon: '👥',
+          title: 'Influencer Marketing',
+          description: 'Connect with relevant creators through sponsored content, collaborations, promotional codes, and trackable campaigns.'
+        },
+        {
+          icon: '🔗',
+          title: 'Affiliate Marketing',
+          description: 'Build referral partnerships using unique links, commission tracking, and affiliate dashboards.'
+        },
+        {
+          icon: '📣',
+          title: 'PR & Brand Promotion',
+          description: 'Promote announcements, press releases, media coverage, and brand stories through digital PR.'
+        },
+        {
+          icon: '💬',
+          title: 'SMS Marketing',
+          description: 'Send promotional offers, alerts, updates, and customer communications to opted-in users.'
+        },
+      ];
+
+      return (
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Our <span className="text-accent">Services</span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              A complete ecosystem of digital marketing services designed to work together for maximum impact.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, i) => (
+              <ServiceCard key={i} {...service} />
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    function CertificateGenerator() {
+      const [studentName, setStudentName] = useState('');
+      const [email, setEmail] = useState('');
+      const [course, setCourse] = useState('Digital Marketing Mastery');
+      const [completionDate, setCompletionDate] = useState(new Date().toISOString().split('T')[0]);
+      const [certificateId, setCertificateId] = useState('');
+      const [showCertificate, setShowCertificate] = useState(false);
+
+      const handleGenerateCertificate = (e) => {
+        e.preventDefault();
+        if (studentName && email) {
+          const id = 'CERT-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+          setCertificateId(id);
+          setShowCertificate(true);
+        }
+      };
+
+      const handlePrint = () => {
+        window.print();
+      };
+
+      return (
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Student <span className="text-accent">Certificate Generator</span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Create professional certificates for your digital marketing course completions.
+            </p>
+          </div>
+
+          {!showCertificate ? (
+            <div className="glass rounded-lg p-8 border border-accent/20 max-w-2xl mx-auto">
+              <form onSubmit={handleGenerateCertificate} className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Student Name *</label>
+                  <input
+                    type="text"
+                    value={studentName}
+                    onChange={(e) => setStudentName(e.target.value)}
+                    className="w-full bg-navy-light border border-accent/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-accent focus:outline-none transition"
+                    placeholder="John Doe"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">Email Address *</label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full bg-navy-light border border-accent/20 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-accent focus:outline-none transition"
+                    placeholder="john@example.com"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">Course Name</label>
+                  <select
+                    value={course}
+                    onChange={(e) => setCourse(e.target.value)}
+                    className="w-full bg-navy-light border border-accent/20 rounded-lg px-4 py-3 text-white focus:border-accent focus:outline-none transition"
+                  >
+                    <option>Basic Digital Marketing (3 Months)</option>
+                    <option>Advanced Digital Marketing (6 Months)</option>
+                    <option>Professional Digital Marketing (1 Year)</option>
+                    <option>SEO Certification</option>
+                    <option>Content Marketing Pro</option>
+                    <option>Social Media Marketing</option>
+                    <option>Email Marketing Expert</option>
+                    <option>Paid Ads Certification</option>
+                    <option>Analytics & Data Mastery</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">Completion Date</label>
+                  <input
+                    type="date"
+                    value={completionDate}
+                    onChange={(e) => setCompletionDate(e.target.value)}
+                    className="w-full bg-navy-light border border-accent/20 rounded-lg px-4 py-3 text-white focus:border-accent focus:outline-none transition"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full gradient-accent text-navy-900 font-bold py-3 rounded-lg hover:opacity-90 transition"
+                >
+                  Generate Certificate
+                </button>
+              </form>
+            </div>
+          ) : (
+            <div>
+              <div className="certificate">
+                <h1>Certificate of Completion</h1>
+                <div className="line"></div>
+
+                <p className="certificate-text">This certifies that</p>
+
+                <div className="certificate-name">{studentName}</div>
+
+                <p className="certificate-text">has successfully completed the course</p>
+
+                <p style={{fontSize: '28px', color: '#8B4513', margin: '20px 0', fontWeight: 'bold'}}>
+                  {course}
+                </p>
+
+                <p className="certificate-text">on {new Date(completionDate).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})}</p>
+
+                <div className="line" style={{marginTop: '40px'}}></div>
+
+                <p style={{fontSize: '12px', color: '#666', marginTop: '20px'}}>
+                  Certificate ID: {certificateId}
+                </p>
+              </div>
+
+              <div className="flex gap-4 justify-center mt-8">
+                <button
+                  onClick={handlePrint}
+                  className="px-8 py-3 rounded-lg gradient-accent text-navy-900 font-semibold hover:opacity-90 transition"
+                >
+                  🖨️ Print Certificate
+                </button>
+                <button
+                  onClick={() => {
+                    setShowCertificate(false);
+                    setStudentName('');
+                    setEmail('');
+                  }}
+                  className="px-8 py-3 rounded-lg border border-accent text-accent hover:bg-accent/10 transition"
+                >
+                  Create Another
+                </button>
+              </div>
+            </div>
+          )}
+        </section>
+      );
+    }
+
+    function StudentReviews() {
+      const reviews = [
+        {
+          name: 'Raj Kumar',
+          course: 'Basic Digital Marketing',
+          rating: 5,
+          text: 'Amazing course! Learned so much about SEO and social media marketing. Highly recommend!',
+          image: '👨‍💼'
+        },
+        {
+          name: 'Priya Singh',
+          course: 'Advanced Digital Marketing',
+          rating: 5,
+          text: 'The advanced content was exactly what I needed. Now I am running successful campaigns.',
+          image: '👩‍💼'
+        },
+        {
+          name: 'Arjun Patel',
+          course: 'Professional Digital Marketing',
+          rating: 5,
+          text: 'Comprehensive program. I landed a great job as a Digital Marketing Manager after this!',
+          image: '👨‍💻'
+        },
+        {
+          name: 'Sneha Verma',
+          course: 'SEO Certification',
+          rating: 5,
+          text: 'Best SEO training I could find. My website traffic increased by 300% in 3 months!',
+          image: '👩‍🔬'
+        },
+        {
+          name: 'Vikram Reddy',
+          course: 'Social Media Marketing',
+          rating: 5,
+          text: 'Practical and actionable tips. My social media engagement tripled after applying what I learned.',
+          image: '👨‍🎓'
+        },
+        {
+          name: 'Ananya Sharma',
+          course: 'Email Marketing Expert',
+          rating: 5,
+          text: 'Excellent course on email automation. My email campaigns now convert at 8% open rate!',
+          image: '👩‍💼'
+        }
+      ];
+
+      return (
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Student <span className="text-accent">Reviews & Feedback</span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              See what our students say about their learning experience.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {reviews.map((review, i) => (
+              <div key={i} className="review-card">
+                <div className="flex items-center mb-4">
+                  <span className="text-3xl mr-3">{review.image}</span>
+                  <div>
+                    <h3 className="font-bold text-accent">{review.name}</h3>
+                    <p className="text-gray-400 text-xs">{review.course}</p>
+                  </div>
+                </div>
+                <div className="stars mb-3">★★★★★</div>
+                <p className="text-gray-300 text-sm">{review.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    function PricingPage() {
+      const plans = [
+        {
+          duration: '3 Months',
+          name: 'Basic Digital Marketing',
+          features: [
+            'Digital Marketing Basics',
+            'SEO Fundamentals',
+            'Social Media Marketing',
+            'Content Marketing',
+            'Google Ads Basics'
+          ],
+        },
+        {
+          duration: '6 Months',
+          name: 'Advanced Digital Marketing',
+          featured: true,
+          features: [
+            'Advanced SEO',
+            'Google Ads',
+            'Social Media Ads',
+            'Email Marketing',
+            'Analytics'
+          ],
+        },
+        {
+          duration: '1 Year',
+          name: 'Professional Digital Marketing',
+          features: [
+            'Complete Digital Marketing',
+            'SEO & SEM',
+            'Social Media Marketing',
+            'Google & Meta Ads',
+            'Freelancing & Projects'
+          ],
+        },
+      ];
+
+      return (
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Choose Your <span className="text-accent">Course</span></h2>
+            <p className="text-gray-400">Flexible learning programs designed for every level</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {plans.map((plan, i) => (
+              <div
+                key={i}
+                className={`rounded-lg border p-8 flex flex-col ${
+                  plan.featured
+                    ? 'glass border-accent/50 relative transform md:scale-105'
+                    : 'glass border-accent/20'
+                }`}
+              >
+                <h3 className="text-sm text-accent font-semibold mb-2 uppercase">{plan.duration}</h3>
+                <h2 className="text-2xl font-bold mb-8">{plan.name}</h2>
+
+                <ul className="space-y-4 mb-8 flex-grow">
+                  {plan.features.map((feature, j) => (
+                    <li key={j} className="flex items-center space-x-3">
+                      <span className="text-accent">✓</span>
+                      <span className="text-gray-300 text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <button className={`w-full py-3 rounded-lg font-semibold transition ${
+                  plan.featured
+                    ? 'gradient-accent text-navy-900 hover:opacity-90'
+                    : 'border border-accent text-accent hover:bg-accent/10'
+                }`}>
+                  Enroll Now
+                </button>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    function ContactPage() {
+      return (
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Get in <span className="text-accent">Touch</span>
+            </h2>
+            <p className="text-gray-400 text-lg">We're here to help you succeed in digital marketing</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="glass rounded-lg p-8 border border-accent/20">
+              <h3 className="text-2xl font-bold text-accent mb-8">Contact Information</h3>
+
+              <div className="space-y-8">
+                <div>
+                  <h4 className="text-accent font-bold mb-2">📞 Phone</h4>
+                  <p className="text-gray-300 text-lg">9056435237</p>
+                </div>
+
+                <div>
+                  <h4 className="text-accent font-bold mb-2">📧 Email</h4>
+                  <p className="text-gray-300">bhaawnabhavu63@gmail.com</p>
+                </div>
+
+                <div>
+                  <h4 className="text-accent font-bold mb-2">🕐 Business Hours</h4>
+                  <p className="text-gray-300">Monday - Friday: 9 AM - 6 PM</p>
+                  <p className="text-gray-300">Saturday: 10 AM - 4 PM</p>
+                  <p className="text-gray-300">Sunday: Closed</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="glass rounded-lg p-8 border border-accent/20">
+              <h3 className="text-2xl font-bold text-accent mb-8">Enrollment Form</h3>
+
+              <form className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Full Name *</label>
+                  <input
+                    type="text"
+                    className="w-full bg-navy-light border border-accent/20 rounded-lg px-4 py-3 text-white focus:border-accent focus:outline-none transition"
+                    placeholder="Your name"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">Email *</label>
+                  <input
+                    type="email"
+                    className="w-full bg-navy-light border border-accent/20 rounded-lg px-4 py-3 text-white focus:border-accent focus:outline-none transition"
+                    placeholder="your@email.com"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">Select Course *</label>
+                  <select className="w-full bg-navy-light border border-accent/20 rounded-lg px-4 py-3 text-white focus:border-accent focus:outline-none transition" required>
+                    <option>Basic Digital Marketing (3 Months)</option>
+                    <option>Advanced Digital Marketing (6 Months)</option>
+                    <option>Professional Digital Marketing (1 Year)</option>
+                  </select>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full gradient-accent text-navy-900 font-bold py-3 rounded-lg hover:opacity-90 transition"
+                >
+                  Enroll Now
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Footer() {
+      return (
+        <footer className="border-t border-accent/10 glass mt-20 py-12">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <p className="text-gray-400 mb-4">&copy; 2024 Digital Growth. All rights reserved.</p>
+            <p className="text-gray-400 mb-4">📞 9056435237 | 📧 bhaawnabhavu63@gmail.com</p>
+            <div className="flex justify-center space-x-6">
+              <button className="text-gray-400 hover:text-accent transition">About</button>
+              <button className="text-gray-400 hover:text-accent transition">Services</button>
+              <button className="text-gray-400 hover:text-accent transition">Contact</button>
+              <button className="text-gray-400 hover:text-accent transition">Privacy</button>
+            </div>
+          </div>
+        </footer>
+      );
+    }
+
+    function App() {
+      const [currentPage, setCurrentPage] = useState('home');
+
+      return (
+        <div className="min-h-screen bg-navy-900 text-white">
+          <Navbar onNavigate={setCurrentPage} />
+
+          {currentPage === 'home' && <AboutPage />}
+
+          {currentPage === 'about' && (
+            <>
+              <Hero />
+              <StudentReviews />
+            </>
+          )}
+          {currentPage === 'services' && <ServicesPage />}
+          {currentPage === 'certificate' && <CertificateGenerator />}
+          {currentPage === 'pricing' && <PricingPage />}
+          {currentPage === 'contact' && <ContactPage />}
+
+          <Footer />
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
